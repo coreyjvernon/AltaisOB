@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/inventory" path="/inventory" id="09057d2d-dc39-4fb2-a281-4a73dfdb9c68" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="09057d2d-dc39-4fb2-a281-4a73dfdb9c68fileName">%2Finventory</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="searchInventory" id="bcc3a0f1-00f1-446d-864a-ee8a204f0217" method="GET">
+    <con:description>By passing in the appropriate options, you can search for
+available inventory in the system</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="false">
+        <con:name>searchString</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+        <con:description>pass an optional search string for looking up inventory</con:description>
+      </con:parameter>
+      <con:parameter required="false">
+        <con:name>skip</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+        <con:description>number of records to skip for pagination</con:description>
+      </con:parameter>
+      <con:parameter required="false">
+        <con:name>limit</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+        <con:description>maximum number of records to return</con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE" id="">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>search results matching criteria</con:description>
+      <con:sampleContent>[ {
+  "id" : "d290f1ee-6c54-4b01-90e6-d701748f0851",
+  "name" : "Widget Adapter",
+  "releaseDate" : "2016-08-29T09:12:33.001Z",
+  "manufacturer" : {
+    "name" : "ACME Corporation",
+    "homePage" : "https://www.acme-corp.com",
+    "phone" : "408-867-5309"
+  }
+} ]</con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="2197ffd0-af68-4597-bfd8-74459664a9eb" mediaType="application/json">
+      <con:description>Adds an item to the system</con:description>
+      <con:settings/>
+      <con:endpoint>https://virtserver.swaggerhub.com/Corey_Projects/Altais1222/1.1.0</con:endpoint>
+      <con:request>{
+  "id" : "d290f1ee-6c54-4b01-90e6-d701748f0851",
+  "name" : "Widget Adapter",
+  "releaseDate" : "2016-08-29T09:12:33.001Z",
+  "manufacturer" : {
+    "name" : "ACME Corporation",
+    "homePage" : "https://www.acme-corp.com",
+    "phone" : "408-867-5309"
+  }
+}</con:request>
+      <con:credentials>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+      <con:parameterOrder>
+        <con:entry>searchString</con:entry>
+        <con:entry>skip</con:entry>
+        <con:entry>limit</con:entry>
+      </con:parameterOrder>
+    </con:request>
+  </con:method>
+  <con:method name="addInventory" id="d384c73f-1c53-4743-b5b8-0b80df6076ab" method="POST">
+    <con:description>Adds an item to the system</con:description>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="REQUEST" id="">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status/>
+      <con:params/>
+      <con:description xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+      <con:sampleContent>{
+  "id" : "d290f1ee-6c54-4b01-90e6-d701748f0851",
+  "name" : "Widget Adapter",
+  "releaseDate" : "2016-08-29T09:12:33.001Z",
+  "manufacturer" : {
+    "name" : "ACME Corporation",
+    "homePage" : "https://www.acme-corp.com",
+    "phone" : "408-867-5309"
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="07f09638-a79f-455c-b9dd-bb989bb8155e" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://virtserver.swaggerhub.com/Corey_Projects/Altais1222/1.1.0</con:endpoint>
+      <con:request>{\r
+  "id" : "d290f1ee-6c54-4b01-90e6-d701748f0851",\r
+  "name" : "Widget Adapter",\r
+  "releaseDate" : "2016-08-29T09:12:33.001Z",\r
+  "manufacturer" : {\r
+    "name" : "ACME Corporation",\r
+    "homePage" : "https://www.acme-corp.com",\r
+    "phone" : "408-867-5309"\r
+  }\r
+}</con:request>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="Deletes an item from the system" id="781171aa-32d5-447b-b17d-e31314914f67" method="DELETE">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>api_key</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:request name="Request 1" id="77f766c7-b82d-432d-a940-f8f1f7310705" mediaType="application/json" postQueryString="false">
+      <con:settings/>
+      <con:endpoint>https://virtserver.swaggerhub.com/Corey_Projects/Altais1222/1.1.0</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

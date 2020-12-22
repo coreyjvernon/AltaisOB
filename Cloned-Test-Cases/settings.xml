@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="eb521013-2766-459b-9e20-ed3687e1acae" name="Cloned Test Cases" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="eb521013-2766-459b-9e20-ed3687e1acaefileName">Cloned-Test-Cases</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

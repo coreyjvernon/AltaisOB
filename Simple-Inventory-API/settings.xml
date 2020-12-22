@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="845dae17-1f7d-4360-818b-662972dd69c9" name="Simple Inventory API" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" definitionUrl="https://api.swaggerhub.com/apis/Corey_Projects/Altais1222/1.0.0" basePath="" xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <con:description>This is a simple API</con:description>
+  <con:settings>
+    <con:setting id="845dae17-1f7d-4360-818b-662972dd69c9fileName">Simple-Inventory-API</con:setting>
+  </con:settings>
+  <con:definitionCache/>
+  <con:endpoints>
+    <con:endpoint>https://virtserver.swaggerhub.com/Corey_Projects/Altais1222/1.0.0</con:endpoint>
+    <con:endpoint>https://virtserver.swaggerhub.com/Corey_Projects/Altais1222/1.1.0</con:endpoint>
+  </con:endpoints>
+</con:interface>

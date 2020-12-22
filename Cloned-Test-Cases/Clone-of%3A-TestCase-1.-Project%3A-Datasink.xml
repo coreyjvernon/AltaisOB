@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="4469228c-6235-482b-b525-cf51b569839c" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Clone of: TestCase 1. Project: Datasink" searchProperties="true" timeout="0" maxResults="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="4469228c-6235-482b-b525-cf51b569839cfileName">Clone-of%3A-TestCase-1.-Project%3A-Datasink</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="datasource" name="DataSource" id="827c44f0-0c50-4830-80b9-2b76d3a88287">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Excel">
+        <con:configuration>
+          <file>C:/Users/Corey.Vernon/Desktop/Test/Cities.xlsx</file>
+          <worksheet/>
+          <cell>A1</cell>
+          <ignoreEmpty>false</ignoreEmpty>
+          <evaluateFormulas>false</evaluateFormulas>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>City</con:property>
+      <con:property>Expected State</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="REST Request" id="97cd96d4-820d-4b37-ae47-bc2c5a064a7a">
+    <con:settings/>
+    <con:config service="https://maps.googleapis.com" methodName="Json" resourcePath="/maps/api/geocode/json" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="6fa53812-94c1-4c09-a2b9-11d9a76a93e7" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://maps.googleapis.com</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://maps.googleapis.com/maps/api/geocode/json</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="fd71da61-5f02-4188-b8dc-4c5ebd70cc55" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="address" value="${DataSource#City}"/>
+          <con:entry key="key" value="AIzaSyCdjFI6DISXPmIzz4ol-P6VyUg9U8feZtw"/>
+        </con:parameters>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasink" name="DataSink" id="54da0a1e-0bbb-49d1-bec8-7c40838cb399">
+    <con:settings/>
+    <con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSink type="Excel">
+        <con:configuration>
+          <file/>
+          <outfile>C:/Users/Corey.Vernon/Desktop/Test/DataSink/DataSink_Example4.xlsx</outfile>
+          <worksheet>New1</worksheet>
+          <cell>A1</cell>
+          <evaluateFormulas>false</evaluateFormulas>
+          <append>true</append>
+        </con:configuration>
+      </con:dataSink>
+      <con:properties>
+        <con:property>
+          <con:name>City</con:name>
+          <con:value>${REST Request#Response#$['results'][0]['address_components'][0]['long_name']}</con:value>
+        </con:property>
+        <con:property>
+          <con:name>State</con:name>
+          <con:value>${REST Request#Response#$['results'][0]['address_components'][2]['long_name']}</con:value>
+        </con:property>
+        <con:property>
+          <con:name>Status</con:name>
+          <con:value>${REST Request#HarResponse#$['status']}</con:value>
+        </con:property>
+        <con:property>
+          <con:name>report</con:name>
+          <con:value/>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="0d2321fe-3487-410c-8af3-a7b4f3720411">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>DataSource</dataSourceStep>
+      <targetStep>REST Request</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>f16047a4-e347-42ee-82fc-819d5b158c65</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>f5c39e31-3500-46ee-abd0-cfb9109f7d60</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>
